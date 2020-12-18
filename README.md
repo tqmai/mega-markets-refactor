@@ -15,6 +15,7 @@ General Notes:
 - I opted to use a stricter styleguide (Airbnb) to allow for more code consistency
 - lint-staged prevents the user from committing code with errors
 - pretty-quick automatically runs Prettier on any changed files while committing them
+- If you see an eslint error in your tsconfig.json file, you can find a solution here: https://stackoverflow.com/questions/50432556/cannot-use-jsx-unless-the-jsx-flag-is-provided
 
 Figmagic Notes:
 
