@@ -20,7 +20,7 @@ General Notes:
 Figmagic Notes:
 
 - You need to add a `FIGMA_URL` and `FIGMA_TOKEN` to your `.env` file in your root folder
-- Then run `npm run figmagic` to get your design tokens, which will appear in a folder (/tokens) in the root
+- Then run `figmagic` to get your design tokens, which will appear in a folder (/tokens) in the root (this works best if you install Figmagic globally first)
 - More detailed instructions can be found here: https://github.com/mikaelvesavuori/figmagic#running-figmagic
 
 ## Available Scripts
