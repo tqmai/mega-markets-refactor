@@ -19,7 +19,7 @@
     "lint": "eslint '*/**/*.{js,jsx,ts,tsx}' --quiet",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "type-check": "tsc --pretty --noEmit",
-    "figmagic": "node ./node_modules/figmagic/build/index.js"
+    "figmagic": "figmagic"
   },
   "browserslist": {
     "production": [
