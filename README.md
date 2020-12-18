@@ -7,7 +7,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - ESLint (for code quality concerns)
 - Prettier (for code formatting concerns)
 - TypeScript (for static type checking)
-- lint-staged and husky (for pre-commit auto formatting)
+- lint-staged, pretty-quick, and husky (for pre-commit auto formatting)
+
+Notes:
+
+- I opted to use a stricter styleguide (Airbnb) to allow for more code consistency
+- lint-staged prevents the user from committing code with errors
+- pretty-quick automatically runs Prettier on any changed files while committing them
 
 ## Available Scripts
 
