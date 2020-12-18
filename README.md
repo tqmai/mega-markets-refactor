@@ -8,12 +8,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Prettier (for code formatting concerns)
 - TypeScript (for static type checking)
 - lint-staged, pretty-quick, and husky (for pre-commit auto formatting)
+- Figmagic (for accessing design tokens in Figma)
 
-Notes:
+General Notes:
 
 - I opted to use a stricter styleguide (Airbnb) to allow for more code consistency
 - lint-staged prevents the user from committing code with errors
 - pretty-quick automatically runs Prettier on any changed files while committing them
+
+Figmagic Notes:
+
+- You need to add a `FIGMA_URL` and `FIGMA_TOKEN` to your `.env` file in your root folder
+- Then run `npm run figmagic` to get your design tokens, which will appear in a folder (/tokens) in the root
+- More detailed instructions can be found here: https://github.com/mikaelvesavuori/figmagic#running-figmagic
 
 ## Available Scripts
 

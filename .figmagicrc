@@ -1,0 +1,21 @@
+{
+  "debugMode": false,
+  "fontUnit": "em",
+  "letterSpacingUnit": "em",
+  "opacitiesUnit": "float",
+  "outputFormatTokens": "js",
+  "outputFileName": "figma.json",
+  "outputFolderBaseFile": ".figmagic",
+  "outputFolderTokens": "src/styles/tokens/figmagic",
+  "outputTokenDataType": null,
+  "outputFolderElements": "elements",
+  "outputFolderGraphics": "graphics",
+  "outputFormatGraphics": "svg",
+  "outputScaleGraphics": 1,
+  "recompileLocal": false,
+  "remSize": 16,
+  "spacingUnit": "rem",
+  "syncElements": false,
+  "syncGraphics": false,
+  "usePostscriptFontNames": true
+}
