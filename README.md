@@ -5,12 +5,15 @@ Created by: Tim Mai
 ## Changes
 
 - Moved the original project files to a React starter template I wrote for my company that includes the following packages:
-  -- ESLint (for code quality concerns)
-  -- Prettier (for code formatting concerns)
-  -- TypeScript (for static type checking)
-  -- lint-staged, pretty-quick, and husky (for pre-commit auto formatting and linting)
-  -- Figmagic (for accessing design tokens in Figma)
-- Refactored code to use TypeScript
+  - ESLint (for code quality concerns)
+  - Prettier (for code formatting concerns)
+  - TypeScript (for static type checking)
+  - lint-staged, pretty-quick, and husky (for pre-commit auto formatting and linting)
+  - Figmagic (for accessing design tokens in Figma)
+- Refactored code to use TypeScript.
+- Updated styling of app with components I built for my company's component library
+  - Finding inspiration from Atomic Design, I created a number of subcomponents that will be used to build more complex components. As this is a simple app, I did not find a need to build "organisms" or "templates" (under Brad Frost's original definitions of them), but his general composition philosophy is still present.
+- Moved content of MainContainer.jsx directly into App.tsx since App.tsx doesn't do anything except display MainContainer.
 
 ## Available Scripts
 
