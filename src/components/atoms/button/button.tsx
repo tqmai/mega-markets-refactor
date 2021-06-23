@@ -13,7 +13,7 @@ import {
   BorderWidths,
 } from "../../../styles/tokens";
 import ButtonBase from "./ButtonBase";
-import Ripple from "./Ripple";
+// import Ripple from "./Ripple";
 
 const StyledButtonBase = styled(ButtonBase)<ButtonProps>`
   /**
@@ -307,41 +307,6 @@ const DestructiveButton = styled(StyledButtonBase)`
     `}
 `;
 
-const Label = styled.span`
-  width: 100%;
-  display: inherit;
-  align-items: inherit;
-  justify-content: inherit;
-  fill: inherit;
-  stroke: inherit;
-`;
-
-const IconSpan = styled.span`
-  display: inherit;
-  align-items: inherit;
-  justify-content: inherit;
-  position: relative;
-  fill: inherit;
-  stroke: inherit;
-
-  /* styling applied to icons */
-  > * {
-    /* these values are inherited from its parent button component */
-    fill: inherit;
-    stroke: inherit;
-  }
-`;
-
-const StartIconSpan = styled(IconSpan)<ButtonProps>`
-  /* only add margin if variant is not 'icon' */
-  margin-right: ${({ variant }) => (variant === "icon" ? 0 : Spacing[8])};
-`;
-
-const EndIconSpan = styled(IconSpan)<ButtonProps>`
-  /* only add margin if variant is not 'icon' */
-  margin-left: ${({ variant }) => (variant === "icon" ? 0 : Spacing[8])};
-`;
-
 const VariantMapping = {
   primary: PrimaryButton,
   secondary: SecondaryButton,
@@ -395,6 +360,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLDivElement> {
    * The variant of the button to use.
    */
   variant?: "primary" | "secondary" | "text" | "icon" | "destructive";
+  value?: number;
 }
 
 export const Button = React.forwardRef(
@@ -404,37 +370,16 @@ export const Button = React.forwardRef(
       className,
       dark = false,
       disabled = false,
-      endIcon = null,
       href,
       fixedWidth = false,
       fullWidth = false,
-      startIcon = null,
       size = "medium",
       variant = "primary",
+      value,
       ...others // used to receive any native HTML element props
     }: ButtonProps,
     ref
   ) => {
-    // ensure that startIcon and endIcon are the right size
-    // all icons are 16px except for the medium version of the icon button variant
-    const iconSizeChooser = (buttonSize: ButtonProps["size"], buttonVariant: ButtonProps["variant"]) => {
-      if (buttonSize === "medium" && buttonVariant === "icon") {
-        return 24;
-      }
-      return 16;
-    };
-
-    const iconSize = iconSizeChooser(size, variant);
-    let startIconWithWidth: React.ReactNode = null;
-    if (startIcon) {
-      startIconWithWidth = React.cloneElement(startIcon as React.ReactElement<any>, { width: iconSize });
-    }
-
-    let endIconWithWidth = null;
-    if (endIcon) {
-      endIconWithWidth = React.cloneElement(endIcon as React.ReactElement<any>, { width: iconSize });
-    }
-
     // generate the right button variant to render
     const Component = VariantMapping[variant];
 
@@ -449,16 +394,13 @@ export const Button = React.forwardRef(
         fullWidth={fullWidth}
         size={size}
         ref={ref}
+        value={value}
         // rule is disabled because we need to receive any native HTML element props
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...others}
       >
-        <Label>
-          {startIcon && <StartIconSpan variant={variant}>{startIconWithWidth}</StartIconSpan>}
-          {children}
-          {endIcon && <EndIconSpan variant={variant}>{endIconWithWidth}</EndIconSpan>}
-        </Label>
-        <Ripple />
+        {children}
+        {/* <Ripple /> */}
       </Component>
     );
   }

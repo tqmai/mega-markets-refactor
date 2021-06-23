@@ -10,6 +10,7 @@
  * ************************************
  */
 import { Typography } from "./atoms/typography";
+import { Button } from "./atoms/button";
 
 type MarketDisplayProps = {
   marketID: number;
@@ -38,12 +39,12 @@ const MarketDisplay = ({ marketID, location, numOfCards, percentage, addCard, de
       <Typography variant="h4">% of total: </Typography>
       <Typography variant="body">{percentage}</Typography>
     </div>
-    <button value={marketID} onClick={addCard}>
+    <Button variant="secondary" size="small" value={marketID} onClick={addCard}>
       Add Card
-    </button>
-    <button value={marketID} onClick={deleteCard}>
+    </Button>
+    <Button variant="secondary" size="small" value={marketID} onClick={deleteCard}>
       Delete Card
-    </button>
+    </Button>
   </div>
 );
 

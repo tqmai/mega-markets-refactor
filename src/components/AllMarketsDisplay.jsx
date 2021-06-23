@@ -19,7 +19,8 @@ const MarketsDisplay = () => {
   const dispatch = useDispatch();
 
   const addCard = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
+    console.log(event.target.value);
     dispatch(actions.addCard(event.target.value));
   };
 
