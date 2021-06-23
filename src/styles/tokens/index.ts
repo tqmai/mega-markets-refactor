@@ -16,11 +16,14 @@ export { default as Durations } from "./figmagic/durations";
 export { default as MediaQueries } from "./figmagic/mediaQueries";
 
 /** Convert line height values to rem */
-const LineHeights: any = {}; // because we are adding additional properties to this object, we need this object type to be 'any'
-const lineHeightKeys = Object.keys(lineHeights);
+type TLineHeights = {
+  [key: string]: string;
+};
+const LineHeights: TLineHeights = { ...lineHeights };
+const lineHeightKeys = Object.keys(LineHeights);
 for (let i = 0; i < lineHeightKeys.length; i += 1) {
   const key = lineHeightKeys[i];
-  LineHeights[key] = `${Number(lineHeights[key])}rem`;
+  LineHeights[key] = `${Number(LineHeights[key])}rem`;
 }
 
 export { LineHeights };

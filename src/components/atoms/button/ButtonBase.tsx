@@ -73,6 +73,7 @@ const ButtonBase = React.forwardRef(
         className={className}
         disabled={disabled}
         href={href} // for use with <a />
+        // @ts-expect-error
         as={asValue}
         ref={ref}
         // rule is disabled because we need to receive any native HTML element props
