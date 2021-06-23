@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from "react";
 import styled, { css } from "styled-components";
-import { MediaQueries } from "@paclife/plds.tokens";
+import { MediaQueries } from "../../../styles/tokens";
 
 const GridOuterContainer = styled.div<GridProps>`
   display: flex;
@@ -11,8 +11,8 @@ const GridOuterContainer = styled.div<GridProps>`
 
   /* create margins based on screen size and user input */
   ${({ margins, smMargins }) => {
-    const spacing = `${margins * 8}px`;
-    const smSpacing = `${smMargins * 8}px`;
+    const spacing = `${margins! * 8}px`;
+    const smSpacing = `${smMargins! * 8}px`;
 
     return css`
       /* for mobile devices */
@@ -40,8 +40,8 @@ const GridInnerContainer = styled.div<GridProps>`
 
   /* create gutters based on screen size and user input */
   ${({ gutters, smGutters, xlFluid }) => {
-    const spacing = `${gutters * 8}px`;
-    const smSpacing = `${smGutters * 8}px`;
+    const spacing = `${gutters! * 8}px`;
+    const smSpacing = `${smGutters! * 8}px`;
 
     const baseSpacingStyles = css`
       /* for mobile devices */
@@ -87,7 +87,7 @@ const GridInnerContainer = styled.div<GridProps>`
 
 // this is used in GridItem
 // this function will be run for each breakpoint
-const itemWidthStyleGenerator = (breakpoint) => {
+const itemWidthStyleGenerator = (breakpoint: GridProps["md"]) => {
   // default flexbox item behavior
   if (breakpoint === "auto") {
     return css`
