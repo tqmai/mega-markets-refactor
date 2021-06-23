@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import { Colors, FontWeights, FontSizes, LineHeights, FontFamilies } from "../../../styles/tokens";
 
@@ -11,99 +11,33 @@ const BaseTypography = styled.span<TypographyProps>`
 const H1 = styled(BaseTypography)`
   font-weight: ${FontWeights[700]};
   color: ${Colors.textHeadlinesLight};
-
-  ${({ set }) => {
-    if (set === "brand") {
-      return css`
-        font-family: ${FontFamilies.montserrat};
-        font-size: ${FontSizes.brandH1};
-        line-height: ${LineHeights[1000]};
-      `;
-    }
-    if (set === "product") {
-      return css`
-        font-family: ${FontFamilies.openSans};
-        font-size: ${FontSizes.productH1};
-        line-height: ${LineHeights[600]};
-      `;
-    }
-
-    return undefined;
-  }}
+  font-family: ${FontFamilies.openSans};
+  font-size: ${FontSizes.productH1};
+  line-height: ${LineHeights[600]};
 `;
 
 const H2 = styled(BaseTypography)`
   font-weight: ${FontWeights[700]};
   color: ${Colors.textHeadlinesLight};
-
-  ${({ set }) => {
-    if (set === "brand") {
-      return css`
-        font-family: ${FontFamilies.montserrat};
-        font-size: ${FontSizes.brandH2};
-        line-height: ${LineHeights[800]};
-      `;
-    }
-    if (set === "product") {
-      return css`
-        font-family: ${FontFamilies.openSans};
-        font-size: ${FontSizes.productH2};
-        line-height: ${LineHeights[600]};
-      `;
-    }
-
-    return undefined;
-  }}
+  font-family: ${FontFamilies.openSans};
+  font-size: ${FontSizes.productH2};
+  line-height: ${LineHeights[600]};
 `;
 
 const H3 = styled(BaseTypography)`
   font-weight: ${FontWeights[700]};
   color: ${Colors.textHeadlinesLight};
-
-  ${({ set }) => {
-    if (set === "brand") {
-      return css`
-        font-family: ${FontFamilies.montserrat};
-        font-size: ${FontSizes.brandH3};
-        line-height: ${LineHeights[600]};
-      `;
-    }
-    if (set === "product") {
-      return css`
-        font-family: ${FontFamilies.openSans};
-        font-size: ${FontSizes.productH3};
-        line-height: ${LineHeights[600]};
-      `;
-    }
-
-    return undefined;
-  }}
+  font-family: ${FontFamilies.openSans};
+  font-size: ${FontSizes.productH3};
+  line-height: ${LineHeights[600]};
 `;
 
 const H4 = styled(BaseTypography)`
   color: ${Colors.textHeadlinesLight};
-
-  ${({ set }) => {
-    if (set === "brand") {
-      return css`
-        font-family: ${FontFamilies.montserrat};
-        font-weight: ${FontWeights[700]};
-        font-size: ${FontSizes.brandH4};
-        line-height: ${LineHeights[500]};
-      `;
-    }
-    // there is no product H4, so these styles match the Body styles
-    if (set === "product") {
-      return css`
-        font-family: ${FontFamilies.openSans};
-        font-weight: ${FontWeights[400]};
-        font-size: ${FontSizes.brandBody};
-        line-height: ${LineHeights[200]};
-      `;
-    }
-
-    return undefined;
-  }}
+  font-family: ${FontFamilies.openSans};
+  font-weight: ${FontWeights[400]};
+  font-size: ${FontSizes.brandBody};
+  line-height: ${LineHeights[200]};
 `;
 
 const Body = styled(BaseTypography)`
@@ -192,10 +126,6 @@ export type TypographyProps = {
    */
   className?: string;
   /**
-   * The color of the component. This overrides the default colors.
-   */
-  color?: string;
-  /**
    * The component used for the root node. Either a string to use a HTML element or a component.
    */
   component?: React.ElementType;
@@ -204,38 +134,10 @@ export type TypographyProps = {
    */
   display?: "initial" | "block" | "inline";
   /**
-   * If `true`, the text will have a bottom margin.
-   */
-  gutterBottom?: boolean;
-  /**
-   * If `true`, the text will not wrap, but instead will truncate with a text overflow ellipsis. Note that text overflow can only happen with block or inline-block level elements (the element needs to have a width in order to overflow).
-   */
-  noWrap?: boolean;
-  /**
-   * If `true`, the text will have a bottom margin.
-   */
-  paragraph?: boolean;
-  /**
-   * The type set to use. The two sets have different uses and needs, and thus have different styling.
-   */
-  set?: "brand" | "product";
-  /**
    * The variant of the component to use.
    */
   variant?: string;
 };
-
-/**
- * props to add:
- * color
- * dark
- * font
- * gutterBottom
- * noWrap
- * paragraph
- * set
- * variant
- */
 
 export function Typography({
   align = "inherit",
@@ -243,7 +145,6 @@ export function Typography({
   className,
   component,
   display = "initial",
-  set = "brand",
   variant = "h1",
 }: TypographyProps) {
   // determine the right typography variant to render
@@ -256,7 +157,6 @@ export function Typography({
       display={display}
       variant={variant}
       as={component || asPropChooser(variant)}
-      set={set}
     >
       {children}
     </Component>
