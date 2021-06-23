@@ -15,7 +15,8 @@ Created by: Tim Mai
   - Finding inspiration from Atomic Design, I created a number of subcomponents that will be used to build more complex components. As this is a simple app, I did not find a need to build "organisms" or "templates" (under Brad Frost's original definitions of them), but his general composition philosophy is still present.
 - Moved content of MainContainer.jsx directly into App.tsx since App.tsx doesn't do anything except display MainContainer
 - Moved Redux-related files into `redux` folder to clean up folder structure
-- Refactor files to use React hooks and React-Redux hooks
+- Refactor files to use React-Redux hooks
+- Renamed `MarketsDisplay` to `AllMarketsDisplay` because I kept mixing it up with `MarketDisplay`
 
 ## Design Decisions
 

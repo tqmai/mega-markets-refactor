@@ -1,7 +1,5 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable no-restricted-syntax */
-/* eslint-disable no-fallthrough */
-/* eslint-disable no-case-declarations */
 /**
  * ************************************
  *
@@ -29,7 +27,7 @@ const marketsReducer = (state = initialState, action) => {
   let targetID;
 
   switch (action.type) {
-    case types.ADD_MARKET:
+    case types.ADD_MARKET: {
       // increment lastMarketId and totalMarkets counters
       const lastMarketId = state.lastMarketId + 1;
       const totalMarkets = state.totalMarkets + 1;
@@ -54,10 +52,13 @@ const marketsReducer = (state = initialState, action) => {
         totalMarkets,
         newLocation: "",
       };
+    }
 
-    case types.SET_NEW_LOCATION:
+    case types.SET_NEW_LOCATION: {
+      break;
+    }
 
-    case types.ADD_CARD:
+    case types.ADD_CARD: {
       // we use action.payload to get marketID
       targetID = action.payload;
 
@@ -84,8 +85,9 @@ const marketsReducer = (state = initialState, action) => {
         marketList,
         totalCards,
       };
+    }
 
-    case types.DELETE_CARD:
+    case types.DELETE_CARD: {
       // we use action.payload to get marketID
       targetID = action.payload;
 
@@ -118,10 +120,13 @@ const marketsReducer = (state = initialState, action) => {
         marketList,
         totalCards,
       };
+    }
 
     default:
       return state;
   }
+
+  return undefined;
 };
 
 export default marketsReducer;
