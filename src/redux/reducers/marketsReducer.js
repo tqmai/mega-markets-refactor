@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 /* eslint-disable no-restricted-syntax */
 /**
  * ************************************
@@ -71,7 +70,7 @@ const marketsReducer = (state = initialState, action) => {
 
       // search it in market list in the state
       for (const market of marketList) {
-        if (market.marketID == targetID) {
+        if (market.marketID === targetID) {
           // then increment the num of card
           market.numOfCards += 1;
         }
@@ -98,7 +97,7 @@ const marketsReducer = (state = initialState, action) => {
       if (totalCards) {
         // search it in market list in the state
         for (const market of marketList) {
-          if (market.marketID == targetID) {
+          if (market.marketID === targetID) {
             // then decrement the num of card
             if (market.numOfCards) {
               market.numOfCards -= 1;
