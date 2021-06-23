@@ -1,21 +1,27 @@
 {
-  "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "strictNullChecks": true,
-    "module": "esnext",
-    "jsx": "react-jsx",
     "target": "es5",
-    "allowJs": true,
-    "baseUrl": "./",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowSyntheticDefaultImports": true,
-    "noFallthroughCasesInSwitch": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"],
+      "components/*": ["src/components/*"],
+      "styles/*": ["src/styles/*"],
+      "pages/*": ["src/pages/*"],
+      "public/*": ["public/*"]
+    }
   },
-  "include": ["src/**/*", "utils/**/*"]
+  "exclude": ["node_modules", ".next", "out", "public", ".figmagic"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"]
 }
