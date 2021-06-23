@@ -30,7 +30,6 @@ const MarketCreator = () => {
       <form onSubmit={addMarket}>
         <Typography variant="h4">Location: </Typography>
         <input type="text" name="location" />
-        <input type="submit" value="Add Market" />
         <Button variant="primary" size="small">
           Add Market
         </Button>
