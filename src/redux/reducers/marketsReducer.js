@@ -59,7 +59,7 @@ const marketsReducer = (state = initialState, action) => {
 
     case types.ADD_CARD: {
       // we use action.payload to get marketID
-      targetID = action.payload;
+      targetID = Number(action.payload);
 
       // create copy of marketList
       marketList = state.marketList.slice();
@@ -68,27 +68,31 @@ const marketsReducer = (state = initialState, action) => {
       // increment the total cards in state
       totalCards += 1;
 
-      // search it in market list in the state
-      for (const market of marketList) {
-        if (market.marketID === targetID) {
+      const updatedMarketList = marketList.map((market) => {
+        const updatedMarket = { ...market };
+
+        if (updatedMarket.marketID === targetID) {
           // then increment the num of card
-          market.numOfCards += 1;
+          updatedMarket.numOfCards += 1;
         }
+
         // need to update percentage of card for all markets from market list
-        market.percentage = ((market.numOfCards / totalCards) * 100).toFixed(2);
-      }
+        updatedMarket.percentage = ((updatedMarket.numOfCards / totalCards) * 100).toFixed(2);
+
+        return updatedMarket;
+      });
 
       // return updated state
       return {
         ...state,
-        marketList,
+        marketList: updatedMarketList,
         totalCards,
       };
     }
 
     case types.DELETE_CARD: {
       // we use action.payload to get marketID
-      targetID = action.payload;
+      targetID = Number(action.payload);
 
       // create copy of marketList
       marketList = state.marketList.slice();
