@@ -11,6 +11,7 @@
  */
 import { useDispatch } from "react-redux";
 import * as actions from "../redux/actions/actions";
+import { Typography } from "./atoms/typography";
 
 const MarketCreator = () => {
   const dispatch = useDispatch();
@@ -23,10 +24,10 @@ const MarketCreator = () => {
   return (
     <div>
       <div>
-        <label>Create New Market</label>
+        <Typography variant="h3">Create New Market</Typography>
       </div>
       <form onSubmit={addMarket}>
-        <label>Location: </label>
+        <Typography variant="h4">Location: </Typography>
         <input type="text" name="location" />
         <input type="submit" value="Add Market" />
       </form>

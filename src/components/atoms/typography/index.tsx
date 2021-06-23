@@ -35,7 +35,7 @@ const H3 = styled(BaseTypography)`
 const H4 = styled(BaseTypography)`
   color: ${Colors.textHeadlinesLight};
   font-family: ${FontFamilies.openSans};
-  font-weight: ${FontWeights[400]};
+  font-weight: ${FontWeights[700]};
   font-size: ${FontSizes.brandBody};
   line-height: ${LineHeights[200]};
 `;

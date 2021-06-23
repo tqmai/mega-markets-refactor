@@ -6,7 +6,6 @@ const App = () => (
   <div className="container">
     <div className="outerBox">
       <Typography variant="h1">MegaMarket Loyalty Cards</Typography>
-      <h1 id="header">MegaMarket Loyalty Cards</h1>
       <TotalsDisplay />
       <MarketsContainer />
     </div>
