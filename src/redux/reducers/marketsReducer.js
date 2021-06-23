@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 /**
  * ************************************
  *
@@ -97,30 +96,33 @@ const marketsReducer = (state = initialState, action) => {
       // create copy of marketList
       marketList = state.marketList.slice();
       totalCards = state.totalCards;
+      let updatedMarketList = marketList;
 
       if (totalCards) {
         // search it in market list in the state
-        for (const market of marketList) {
-          if (market.marketID === targetID) {
-            // then decrement the num of card
-            if (market.numOfCards) {
-              market.numOfCards -= 1;
-              // decrement the total cards in state
-              totalCards -= 1;
-            }
-          }
-        }
+        updatedMarketList = marketList.map((market) => {
+          const updatedMarket = { ...market };
 
-        for (const market of marketList) {
-          // need to update percentage of card for all markets from market list
-          market.percentage = totalCards ? ((market.numOfCards / totalCards) * 100).toFixed(2) : 0;
+          if (updatedMarket.marketID === targetID) {
+            // then increment the num of card
+            updatedMarket.numOfCards -= 1;
+            // decrement the total cards in state
+            totalCards -= 1;
+          }
+
+          return updatedMarket;
+        });
+
+        // need to update percentage of card for all markets from market list
+        for (let i = 0; i < updatedMarketList.length; i += 1) {
+          updatedMarketList[i].percentage = ((updatedMarketList[i].numOfCards / totalCards) * 100).toFixed(2);
         }
       }
 
       // return updated state
       return {
         ...state,
-        marketList,
+        marketList: updatedMarketList,
         totalCards,
       };
     }
