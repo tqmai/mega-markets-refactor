@@ -9,19 +9,29 @@
  *
  * ************************************
  */
+import { useDispatch } from "react-redux";
+import * as actions from "../redux/actions/actions";
 
-// eslint-disable-next-line react/prop-types
-const MarketCreator = ({ addMarket }) => (
-  <div>
+const MarketCreator = () => {
+  const dispatch = useDispatch();
+
+  const addMarket = (event) => {
+    event.preventDefault();
+    dispatch(actions.addMarket(event.target.location.value));
+  };
+
+  return (
     <div>
-      <label>Create New Market</label>
+      <div>
+        <label>Create New Market</label>
+      </div>
+      <form onSubmit={addMarket}>
+        <label>Location: </label>
+        <input type="text" name="location" />
+        <input type="submit" value="Add Market" />
+      </form>
     </div>
-    <form onSubmit={addMarket}>
-      <label>Location: </label>
-      <input type="text" name="location" />
-      <input type="submit" value="Add Market" />
-    </form>
-  </div>
-);
+  );
+};
 
 export default MarketCreator;
