@@ -10,7 +10,7 @@
  */
 import { connect } from "react-redux";
 // import actions from action creators file
-import * as actions from "../actions/actions";
+import * as actions from "../redux/actions/actions";
 // import child components...
 // import MarketCreator from '../components/MarketCreator.jsx'
 import MarketsDisplay from "../components/MarketsDisplay";

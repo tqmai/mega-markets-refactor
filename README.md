@@ -10,10 +10,16 @@ Created by: Tim Mai
   - TypeScript (for static type checking)
   - lint-staged, pretty-quick, and husky (for pre-commit auto formatting and linting)
   - Figmagic (for accessing design tokens in Figma)
-- Refactored code to use TypeScript.
+- Refactored code to use TypeScript
 - Updated styling of app with components I built for my company's component library
   - Finding inspiration from Atomic Design, I created a number of subcomponents that will be used to build more complex components. As this is a simple app, I did not find a need to build "organisms" or "templates" (under Brad Frost's original definitions of them), but his general composition philosophy is still present.
-- Moved content of MainContainer.jsx directly into App.tsx since App.tsx doesn't do anything except display MainContainer.
+- Moved content of MainContainer.jsx directly into App.tsx since App.tsx doesn't do anything except display MainContainer
+- Moved Redux-related files into `redux` folder to clean up folder structure
+- Refactor files to use React hooks and React-Redux hooks
+
+## Design Decisions
+
+- I debated whether or not to use Redux Toolkit since it adds useful functionality like `createSlice`, but I opted to use vanilla Redux to show that I know how to use it.
 
 ## Available Scripts
 
