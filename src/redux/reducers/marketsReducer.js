@@ -94,7 +94,6 @@ const marketsReducer = (state = initialState, action) => {
       totalCards = state.totalCards;
 
       if (totalCards) {
-        console.log("WE ARE IN IF LOOP");
         // search it in market list in the state
         for (const market of marketList) {
           if (market.marketID == targetID) {
