@@ -10,10 +10,17 @@
  * ************************************
  */
 import { useDispatch } from "react-redux";
+import styled from "styled-components";
 import * as actions from "../redux/actions/actions";
 import { Typography } from "./atoms/typography";
 import { Button } from "./atoms/button";
 import { TextInput } from "./atoms/input";
+import { Grid } from "./atoms/grid";
+import { Spacing } from "../styles/tokens";
+
+const StyledInput = styled(TextInput)`
+  margin-bottom: ${Spacing[8]};
+`;
 
 const MarketCreator = () => {
   const dispatch = useDispatch();
@@ -24,18 +31,18 @@ const MarketCreator = () => {
   };
 
   return (
-    <div>
+    <Grid item sm={12}>
       <div>
         <Typography variant="h3">Create New Market</Typography>
       </div>
       <form onSubmit={addMarket}>
         <Typography variant="h4">Location: </Typography>
-        <TextInput name="location" />
+        <StyledInput name="location" />
         <Button variant="primary" size="small">
           Add Market
         </Button>
       </form>
-    </div>
+    </Grid>
   );
 };
 

@@ -10,15 +10,17 @@ const StyledTypography = styled(Typography)`
 `;
 
 const App = () => (
-  <Grid container justify="center">
-    <Grid item sm={12}>
-      <StyledTypography variant="h1" align="center" display="block">
-        MegaMarket Loyalty Cards
-      </StyledTypography>
-      <TotalsDisplay />
+  <div>
+    <Grid container>
+      <Grid item sm={12}>
+        <StyledTypography variant="h1" align="center" display="block">
+          MegaMarket Loyalty Cards
+        </StyledTypography>
+        <TotalsDisplay />
+      </Grid>
       <MarketsContainer />
     </Grid>
-  </Grid>
+  </div>
 );
 
 export default App;

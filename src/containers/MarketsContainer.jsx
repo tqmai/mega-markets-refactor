@@ -12,7 +12,7 @@ import AllMarketsDisplay from "../components/AllMarketsDisplay";
 import MarketCreator from "../components/MarketCreator";
 
 const MarketsContainer = () => (
-  <div className="innerbox">
+  <div>
     <MarketCreator />
     <AllMarketsDisplay />
   </div>

@@ -14,7 +14,6 @@ import {
   FontFamilies,
 } from "../../../styles/tokens";
 
-// need to confirm once Typography is done
 const ToolTipBoldFont = css`
   font-style: normal;
   font-weight: ${FontWeights[700]};
@@ -35,7 +34,6 @@ const Input = styled.input`
   outline: none;
   padding: 0 ${Spacing[16]};
   font-family: ${FontFamilies.openSans} !important;
-  /* font-family: ${FontFamilies.font} !important;  */
   ${ToolTipBoldFont}
 
   &::placeholder {
