@@ -28,6 +28,8 @@ const MarketCreator = () => {
   const addMarket = (event) => {
     event.preventDefault();
     dispatch(actions.addMarket(event.target.location.value));
+    // eslint-disable-next-line no-param-reassign
+    event.target.location.value = "";
   };
 
   return (
