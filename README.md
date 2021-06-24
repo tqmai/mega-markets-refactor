@@ -17,6 +17,7 @@ Created by: Tim Mai
 - Moved Redux-related files into `redux` folder to clean up folder structure
 - Refactor files to use React-Redux hooks
 - Renamed `MarketsDisplay` to `AllMarketsDisplay` because I kept mixing it up with `MarketDisplay`
+- Moved content of MarketsContainer directly into App.tsx because it became a very simple component after refactoring to use Redux hooks, and the app structure would be clearer
 
 ## Design Decisions
 
