@@ -2,7 +2,7 @@ import styled from "styled-components";
 import TotalsDisplay from "./components/TotalsDisplay";
 import { Typography } from "./components/atoms/typography";
 import { Grid } from "./components/atoms/grid";
-import AllMarketsDisplay from "./components/AllMarketsDisplay";
+import MarketsDisplay from "./components/MarketsDisplay";
 import MarketCreator from "./components/MarketCreator";
 import { Colors } from "./styles/tokens";
 
@@ -20,7 +20,7 @@ const App = () => (
         <TotalsDisplay />
       </Grid>
       <MarketCreator />
-      <AllMarketsDisplay />
+      <MarketsDisplay />
     </Grid>
   </div>
 );
