@@ -9,10 +9,8 @@
  * ************************************
  */
 import { useSelector, useDispatch } from "react-redux";
-// import MarketDisplay from "./MarketDisplay";
 import * as actions from "../redux/actions/actions";
-import { Typography } from "./atoms/typography";
-// import { Grid } from "./atoms/grid";
+import { Grid } from "./atoms/grid";
 import MarketCard from "./molecules/marketCard";
 
 const MarketsDisplay = () => {
@@ -30,29 +28,21 @@ const MarketsDisplay = () => {
     dispatch(actions.deleteCard(event.target.value));
   };
 
-  const marketArr = [];
-  for (let i = 0; i < marketList.length; i += 1) {
-    marketArr.push(
+  const marketsArr = marketList.map(({ marketID, location, numOfCards, percentage }) => (
+    <Grid item sm={12} md={4} lg={3}>
       <MarketCard
-        id={i}
-        key={marketList[i].marketID}
-        marketID={marketList[i].marketID}
-        location={marketList[i].location}
-        numOfCards={marketList[i].numOfCards}
-        percentage={marketList[i].percentage}
+        key={marketID}
+        marketID={marketID}
+        location={location}
+        numOfCards={numOfCards}
+        percentage={percentage}
         addCard={addCard}
         deleteCard={deleteCard}
       />
-    );
-  }
+    </Grid>
+  ));
 
-  return (
-    <div>
-      <Typography variant="h3">Markets</Typography>
-      <br />
-      {marketArr}
-    </div>
-  );
+  return <>{marketsArr}</>;
 };
 
 export default MarketsDisplay;

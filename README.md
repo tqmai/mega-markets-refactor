@@ -16,8 +16,10 @@ Created by: Tim Mai
 - Moved content of MainContainer.jsx directly into App.tsx since App.tsx doesn't do anything except display MainContainer
 - Moved Redux-related files into `redux` folder to clean up folder structure
 - Refactor files to use React-Redux hooks
+- Opted to pass selectors/dispatch/actions directly into components that need them instead of passing them to a parent container and then passing them down via props (i.e. avoid prop drilling)
 - Renamed `MarketsDisplay` to `AllMarketsDisplay` because I kept mixing it up with `MarketDisplay`
 - Moved content of MarketsContainer directly into App.tsx because it became a very simple component after refactoring to use Redux hooks, and the app structure would be clearer
+- Replaced MarketDisplay with MarketCard
 
 ## Design Decisions
 
