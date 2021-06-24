@@ -19,10 +19,22 @@ const initialState = {
   newLocation: "",
 };
 
-const marketsReducer = (state = initialState, action) => {
-  let marketList;
-  let totalCards;
-  let targetID;
+interface TAction {
+  type: string;
+  payload: any;
+}
+
+interface TMarket {
+  marketID: number;
+  location: string;
+  numOfCards: number;
+  percentage: string;
+}
+
+const marketsReducer = (state = initialState, action: TAction) => {
+  let marketList: TMarket[];
+  let totalCards: number;
+  let targetID: number;
 
   switch (action.type) {
     case types.ADD_MARKET: {
@@ -43,7 +55,7 @@ const marketsReducer = (state = initialState, action) => {
         marketID: lastMarketId,
         location,
         numOfCards: 0,
-        percentage: 0,
+        percentage: "0",
       };
 
       // push the new market onto a copy of the market list
