@@ -11,7 +11,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../redux/actions/actions";
 import { Grid } from "../atoms/grid";
-import MarketCard from "../molecules/marketCard";
+import MarketCard from "../molecules/MarketCard";
 
 const MarketsDisplay = () => {
   const marketList = useSelector((state) => state.markets.marketList);

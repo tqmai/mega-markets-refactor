@@ -10,7 +10,8 @@ const StudioCardContainer = styled.div`
   border-radius: ${Radii.soft};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 4px rgba(0, 0, 0, 0.25);
   background-color: ${Colors.neutral100};
-  padding: ${Spacing[48]} 0 ${Spacing[32]} 0;
+  box-sizing: border-box;
+  padding: ${Spacing[48]} ${Spacing[16]} ${Spacing[32]};
   margin: ${Spacing[4]} ${Spacing[8]};
   border-top: ${BorderWidths.chunky} solid ${Colors.blue500};
 
@@ -25,10 +26,10 @@ const StudioCardContainer = styled.div`
 `;
 
 const StudioCardTitle = styled(Typography)`
-  color: ${Colors.neutral500};
+  color: ${Colors.neutral800};
   display: flex;
   align-items: center;
-  margin: 0 ${Spacing[32]} ${Spacing[32]} ${Spacing[32]};
+  margin: 0 ${Spacing[16]} ${Spacing[16]};
   height: 104px;
 
   @media screen and (max-width: ${MediaQueries.lg}) {
@@ -36,10 +37,9 @@ const StudioCardTitle = styled(Typography)`
   }
 `;
 
-// const StudioCardContent = styled(Typography)`
-//   color: ${Colors.neutral800};
-//   margin: 0 ${Spacing[32]} ${Spacing[32]} ${Spacing[32]};
-// `
+const StyledButton = styled(Button)`
+  margin: ${Spacing[8]} ${Spacing[8]} 0 0;
+`;
 
 type MarketDisplayProps = {
   marketID: number;
@@ -52,16 +52,11 @@ type MarketDisplayProps = {
 
 const MarketCard = ({ marketID, location, numOfCards, percentage, addCard, deleteCard }: MarketDisplayProps) => (
   <StudioCardContainer>
-    {/* <div className="marketBox"> */}
     <StudioCardTitle variant="h2">{location}</StudioCardTitle>
     <div>
       <Typography variant="h4">Market ID: </Typography>
       <Typography variant="body">{marketID}</Typography>
     </div>
-    {/* <div>
-      <Typography variant="h4">Location: </Typography>
-      <Typography variant="body">{location}</Typography>
-    </div> */}
     <div>
       <Typography variant="h4">Cards: </Typography>
       <Typography variant="body">{numOfCards}</Typography>
@@ -70,13 +65,12 @@ const MarketCard = ({ marketID, location, numOfCards, percentage, addCard, delet
       <Typography variant="h4">% of total: </Typography>
       <Typography variant="body">{percentage}</Typography>
     </div>
-    <Button variant="secondary" size="small" value={marketID} onClick={addCard}>
+    <StyledButton variant="secondary" size="small" value={marketID} onClick={addCard}>
       Add Card
-    </Button>
-    <Button variant="secondary" size="small" value={marketID} onClick={deleteCard}>
+    </StyledButton>
+    <StyledButton variant="secondary" size="small" value={marketID} onClick={deleteCard}>
       Delete Card
-    </Button>
-    {/* </div> */}
+    </StyledButton>
   </StudioCardContainer>
 );
 
