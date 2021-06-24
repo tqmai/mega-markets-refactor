@@ -29,9 +29,8 @@ const MarketsDisplay = () => {
   };
 
   const marketsArr = marketList.map(({ marketID, location, numOfCards, percentage }) => (
-    <Grid item sm={12} md={4} lg={3}>
+    <Grid item sm={12} md={4} lg={3} key={marketID}>
       <MarketCard
-        key={marketID}
         marketID={marketID}
         location={location}
         numOfCards={numOfCards}
