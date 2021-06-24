@@ -26,7 +26,6 @@ const ToolTipBoldFont = css`
 `;
 
 const Input = styled.input`
-  width: 100%;
   height: ${({ size }) => (size === "lg" ? "60px" : "40px")};
   background: ${Colors.neutral0};
   border: ${BorderWidths.hairline} solid ${Colors.neutral200};
@@ -48,6 +47,7 @@ const Input = styled.input`
     `}
 `;
 
+// eslint-disable-next-line import/prefer-default-export
 export const TextInput = ({
   id,
   name,
@@ -96,79 +96,4 @@ TextInput.defaultProps = {
   className: "",
   error: false,
   handleChange: () => {},
-};
-
-const TextAreaField = styled.textarea`
-  width: 100%;
-  height: ${({ size }) => (size === "lg" ? "200px" : "100px")};
-  background: ${Colors.pearlWhite100};
-  border: ${BorderWidths.hairline} solid ${Colors.whaleGrey25};
-  border-radius: ${Radii.rounded};
-  outline: none;
-  padding: ${Spacing[400]};
-  overflow-y: scroll;
-
-  // font-family token doesn't work
-  font-family: objektiv-mk2 !important;
-  ${ToolTipBoldFont}
-
-  &::placeholder {
-    color: ${Colors.sealGrey80};
-  }
-
-  /** Error State */
-  ${({ error }) =>
-    error === "true" &&
-    css`
-      border-color: ${Colors.coralRed};
-    `}
-`;
-
-export const TextArea = ({
-  id,
-  name,
-  placeholder,
-  className,
-  handleChange,
-  size,
-  /** textareaAttrs is for other textarea attributes,
-   * such as autoComplete, maxLength
-   * */
-  ...textareaAttrs
-}) => {
-  const [inputValue, setInputValue] = useState("");
-
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-    handleChange(e.target.name, e.target.value);
-  };
-
-  return (
-    <TextAreaField
-      className={className}
-      id={id}
-      name={name}
-      placeholder={placeholder}
-      value={inputValue}
-      onChange={handleInputChange}
-      size={size}
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...textareaAttrs}
-    />
-  );
-};
-
-TextArea.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  handleChange: PropTypes.func,
-  size: PropTypes.string,
-};
-
-TextArea.defaultProps = {
-  className: "",
-  handleChange: () => {},
-  size: "",
 };

@@ -19,6 +19,7 @@ import { Spacing } from "../styles/tokens";
 
 const StyledInput = styled(TextInput)`
   margin-bottom: ${Spacing[8]};
+  margin-right: ${Spacing[8]};
 `;
 
 const MarketCreator = () => {
@@ -36,7 +37,7 @@ const MarketCreator = () => {
       </div>
       <form onSubmit={addMarket}>
         <Typography variant="h4">Location: </Typography>
-        <StyledInput name="location" placeholder="Add location name here" id="location" />
+        <StyledInput name="location" placeholder="Input name here" id="location" />
         <Button variant="primary" size="small">
           Add Market
         </Button>
