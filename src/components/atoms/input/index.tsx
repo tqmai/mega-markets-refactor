@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled, { css } from "styled-components";
-import PropTypes from "prop-types";
 
 import {
   Colors,
@@ -25,8 +24,8 @@ const ToolTipBoldFont = css`
   }
 `;
 
-const Input = styled.input`
-  height: ${({ size }) => (size === "lg" ? "60px" : "40px")};
+const Input = styled.input<TextInputProps>`
+  height: 40px;
   background: ${Colors.neutral0};
   border: ${BorderWidths.hairline} solid ${Colors.neutral200};
   border-radius: ${Radii.rounded};
@@ -41,30 +40,50 @@ const Input = styled.input`
 
   /** Error State */
   ${({ error }) =>
-    error === "true" &&
+    error &&
     css`
       border-color: ${Colors.destructive};
     `}
 `;
 
-// eslint-disable-next-line import/prefer-default-export
+export type TextInputProps = {
+  /**
+   * Any class name you want to apply to the component, whether to extend styles or some other reason.
+   */
+  className?: string;
+  /**
+   * Boolean indicating whether there is an error or not
+   */
+  error?: boolean;
+  /**
+   * The CSS ID of the input field.
+   */
+  id: string;
+  /**
+   * The name of the input field.
+   */
+  name: string;
+  /**
+   * The name of the input field.
+   */
+  placeholder?: string;
+};
+
 export const TextInput = ({
   id,
   name,
   placeholder,
   className,
   error,
-  handleChange,
   /** inputAttrs is for other textarea attributes,
    * such as autoComplete, maxLength
    * */
   ...inputAttrs
-}) => {
+}: TextInputProps) => {
   const [inputValue, setInputValue] = useState("");
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
-    handleChange(e.target.name, e.target.value);
   };
 
   return (
@@ -76,20 +95,11 @@ export const TextInput = ({
       placeholder={placeholder}
       value={inputValue}
       onChange={handleInputChange}
-      error={String(error)}
+      error={error}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...inputAttrs}
     />
   );
-};
-
-TextInput.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  error: PropTypes.bool,
-  handleChange: PropTypes.func,
 };
 
 TextInput.defaultProps = {
