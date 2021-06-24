@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 import * as actions from "../redux/actions/actions";
 import { Typography } from "./atoms/typography";
 import { Button } from "./atoms/button";
+import { TextInput } from "./atoms/input";
 
 const MarketCreator = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const MarketCreator = () => {
       </div>
       <form onSubmit={addMarket}>
         <Typography variant="h4">Location: </Typography>
-        <input type="text" name="location" />
+        <TextInput name="location" />
         <Button variant="primary" size="small">
           Add Market
         </Button>

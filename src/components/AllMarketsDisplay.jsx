@@ -12,6 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 // import MarketDisplay from "./MarketDisplay";
 import * as actions from "../redux/actions/actions";
 import { Typography } from "./atoms/typography";
+// import { Grid } from "./atoms/grid";
 import MarketCard from "./molecules/marketCard";
 
 const MarketsDisplay = () => {
@@ -46,7 +47,7 @@ const MarketsDisplay = () => {
   }
 
   return (
-    <div className="displayBox">
+    <div>
       <Typography variant="h3">Markets</Typography>
       <br />
       {marketArr}
