@@ -10,22 +10,26 @@
  * ************************************
  */
 import { useSelector } from "react-redux";
+import styled from "styled-components";
 import { Typography } from "./atoms/typography";
+
+const TotalsContainer = styled.div`
+  text-align: center;
+`;
 
 const TotalsDisplay = () => {
   const totalMarkets = useSelector((state) => state.markets.totalMarkets);
   const totalCards = useSelector((state) => state.markets.totalCards);
 
   return (
-    <div className="innerbox" id="totals">
+    <TotalsContainer>
       <div>
         <Typography variant="h2">Total Cards: {totalCards}</Typography>
-        <br />
       </div>
       <div>
         <Typography variant="h2">Total Markets: {totalMarkets}</Typography>
       </div>
-    </div>
+    </TotalsContainer>
   );
 };
 

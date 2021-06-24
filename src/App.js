@@ -1,15 +1,18 @@
 import TotalsDisplay from "./components/TotalsDisplay";
 import MarketsContainer from "./containers/MarketsContainer";
 import { Typography } from "./components/atoms/typography";
+import { Grid } from "./components/atoms/grid";
 
 const App = () => (
-  <div className="container">
-    <div className="outerBox">
-      <Typography variant="h1">MegaMarket Loyalty Cards</Typography>
+  <Grid container justify="center">
+    <Grid item sm={12}>
+      <Typography variant="h1" align="center" display="block">
+        MegaMarket Loyalty Cards
+      </Typography>
       <TotalsDisplay />
       <MarketsContainer />
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 
 export default App;

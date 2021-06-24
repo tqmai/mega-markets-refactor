@@ -9,9 +9,10 @@
  * ************************************
  */
 import { useSelector, useDispatch } from "react-redux";
-import MarketDisplay from "./MarketDisplay";
+// import MarketDisplay from "./MarketDisplay";
 import * as actions from "../redux/actions/actions";
 import { Typography } from "./atoms/typography";
+import MarketCard from "./molecules/marketCard";
 
 const MarketsDisplay = () => {
   const marketList = useSelector((state) => state.markets.marketList);
@@ -31,7 +32,7 @@ const MarketsDisplay = () => {
   const marketArr = [];
   for (let i = 0; i < marketList.length; i += 1) {
     marketArr.push(
-      <MarketDisplay
+      <MarketCard
         id={i}
         key={marketList[i].marketID}
         marketID={marketList[i].marketID}
