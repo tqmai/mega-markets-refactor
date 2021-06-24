@@ -10,12 +10,12 @@
  */
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import * as actions from "../redux/actions/actions";
-import { Typography } from "./atoms/typography";
-import { Button } from "./atoms/button";
-import { TextInput } from "./atoms/input";
-import { Grid } from "./atoms/grid";
-import { Spacing } from "../styles/tokens";
+import * as actions from "../../redux/actions/actions";
+import { Typography } from "../atoms/typography";
+import { Button } from "../atoms/button";
+import { TextInput } from "../atoms/input";
+import { Grid } from "../atoms/grid";
+import { Spacing } from "../../styles/tokens";
 
 const StyledInput = styled(TextInput)`
   margin-bottom: ${Spacing[8]};

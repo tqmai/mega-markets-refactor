@@ -11,7 +11,7 @@
  */
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { Typography } from "./atoms/typography";
+import { Typography } from "../atoms/typography";
 
 const TotalsContainer = styled.div`
   text-align: center;

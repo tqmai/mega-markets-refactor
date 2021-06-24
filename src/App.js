@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import TotalsDisplay from "./components/TotalsDisplay";
+import TotalsDisplay from "./components/organisms/TotalsDisplay";
 import { Typography } from "./components/atoms/typography";
 import { Grid } from "./components/atoms/grid";
-import MarketsDisplay from "./components/MarketsDisplay";
-import MarketCreator from "./components/MarketCreator";
+import MarketsDisplay from "./components/organisms/MarketsDisplay";
+import MarketCreator from "./components/organisms/MarketCreator";
 import { Colors } from "./styles/tokens";
 
 const StyledTypography = styled(Typography)`

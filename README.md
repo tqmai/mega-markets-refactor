@@ -12,13 +12,14 @@ Created by: Tim Mai
   - Figmagic (for accessing design tokens in Figma)
 - Refactored code to use TypeScript
 - Updated styling of app with components I built for my company's component library
-  - Finding inspiration from Atomic Design, I created a number of subcomponents that will be used to build more complex components. As this is a simple app, I did not find a need to build "organisms" or "templates" (under Brad Frost's original definitions of them), but his general composition philosophy is still present.
+  - Finding inspiration from Atomic Design, I created a number of subcomponents that were used to build more complex components. As this is a simple app, I did not find a need to build "templates" or "pages" (under Brad Frost's original definitions of them), but his general composition philosophy is still present.
 - Moved content of MainContainer.jsx directly into App.tsx since App.tsx doesn't do anything except display MainContainer
 - Moved Redux-related files into `redux` folder to clean up folder structure
 - Refactor files to use React-Redux hooks
 - Opted to pass selectors/dispatch/actions directly into components that need them instead of passing them to a parent container and then passing them down via props (i.e. avoid prop drilling)
 - Moved content of MarketsContainer directly into App.tsx because it became a very simple component after refactoring to use Redux hooks, and the app structure would be clearer
 - Replaced MarketDisplay with MarketCard
+- Added functionality to reset input field value after creating new market
 
 ## Design Decisions
 

@@ -9,8 +9,8 @@
  *
  * ************************************
  */
-import { Typography } from "./atoms/typography";
-import { Button } from "./atoms/button";
+import { Typography } from "../atoms/typography";
+import { Button } from "../atoms/button";
 
 type MarketDisplayProps = {
   marketID: number;
