@@ -26,6 +26,14 @@ const marketsReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case types.ADD_MARKET: {
+      const location = action.payload;
+
+      // if no location value, return current state
+      if (!location)
+        return {
+          ...state,
+        };
+
       // increment lastMarketId and totalMarkets counters
       const lastMarketId = state.lastMarketId + 1;
       const totalMarkets = state.totalMarkets + 1;
@@ -33,7 +41,7 @@ const marketsReducer = (state = initialState, action) => {
       // create the new market object from provided data
       const newMarket = {
         marketID: lastMarketId,
-        location: action.payload,
+        location,
         numOfCards: 0,
         percentage: 0,
       };
