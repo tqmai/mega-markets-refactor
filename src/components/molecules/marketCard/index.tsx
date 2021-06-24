@@ -46,8 +46,8 @@ type MarketDisplayProps = {
   location: string;
   numOfCards: number;
   percentage: number;
-  addCard: () => void;
-  deleteCard: () => void;
+  addCard: (event: React.SyntheticEvent) => void;
+  deleteCard: (event: React.SyntheticEvent) => void;
 };
 
 const MarketCard = ({ marketID, location, numOfCards, percentage, addCard, deleteCard }: MarketDisplayProps) => (

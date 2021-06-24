@@ -14,21 +14,31 @@ import { Grid } from "../atoms/grid";
 import MarketCard from "../molecules/MarketCard";
 
 const MarketsDisplay = () => {
+  // @ts-expect-error
   const marketList = useSelector((state) => state.markets.marketList);
 
   const dispatch = useDispatch();
 
-  const addCard = (event) => {
+  const addCard = (event: React.SyntheticEvent) => {
     event.preventDefault();
+    // @ts-expect-error
     dispatch(actions.addCard(event.target.value));
   };
 
-  const deleteCard = (event) => {
+  const deleteCard = (event: React.SyntheticEvent) => {
     event.preventDefault();
+    // @ts-expect-error
     dispatch(actions.deleteCard(event.target.value));
   };
 
-  const marketsArr = marketList.map(({ marketID, location, numOfCards, percentage }) => (
+  type MarketDisplayProps = {
+    marketID: number;
+    location: string;
+    numOfCards: number;
+    percentage: number;
+  };
+
+  const marketsArr = marketList.map(({ marketID, location, numOfCards, percentage }: MarketDisplayProps) => (
     <Grid item sm={12} md={4} lg={3} key={marketID}>
       <MarketCard
         marketID={marketID}
