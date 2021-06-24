@@ -25,9 +25,11 @@ const StyledInput = styled(TextInput)`
 const MarketCreator = () => {
   const dispatch = useDispatch();
 
-  const addMarket = (event) => {
+  const addMarket = (event: React.SyntheticEvent) => {
     event.preventDefault();
+    // @ts-expect-error
     dispatch(actions.addMarket(event.target.location.value));
+    // @ts-expect-error
     // eslint-disable-next-line no-param-reassign
     event.target.location.value = "";
   };
