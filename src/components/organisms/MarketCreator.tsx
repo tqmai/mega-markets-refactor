@@ -8,7 +8,7 @@
  *
  * ************************************
  */
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "src/redux/hooks";
 import styled from "styled-components";
 import * as actions from "../../redux/actions/actions";
 import { Typography } from "../atoms/typography";
@@ -23,7 +23,7 @@ const StyledInput = styled(TextInput)`
 `;
 
 const MarketCreator = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const addMarket = (event: React.SyntheticEvent) => {
     event.preventDefault();

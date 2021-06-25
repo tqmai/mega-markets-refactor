@@ -9,8 +9,8 @@
  *
  * ************************************
  */
-import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { useAppSelector } from "../../redux/hooks";
 import { Typography } from "../atoms/typography";
 
 const TotalsContainer = styled.div`
@@ -18,8 +18,8 @@ const TotalsContainer = styled.div`
 `;
 
 const TotalsDisplay = () => {
-  const totalMarkets = useSelector((state) => state.markets.totalMarkets);
-  const totalCards = useSelector((state) => state.markets.totalCards);
+  const totalMarkets = useAppSelector((state) => state.markets.totalMarkets);
+  const totalCards = useAppSelector((state) => state.markets.totalCards);
 
   return (
     <TotalsContainer>
