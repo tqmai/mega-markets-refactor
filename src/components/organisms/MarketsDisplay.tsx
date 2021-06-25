@@ -8,16 +8,16 @@
  *
  * ************************************
  */
-import { useSelector, useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "src/redux/hooks";
 import * as actions from "../../redux/actions/actions";
 import { Grid } from "../atoms/grid";
 import MarketCard from "../molecules/MarketCard";
 
 const MarketsDisplay = () => {
   // @ts-expect-error
-  const marketList = useSelector((state) => state.markets.marketList);
+  const marketList = useAppSelector((state) => state.markets.marketList);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const addCard = (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -31,14 +31,7 @@ const MarketsDisplay = () => {
     dispatch(actions.deleteCard(event.target.value));
   };
 
-  type MarketDisplayProps = {
-    marketID: number;
-    location: string;
-    numOfCards: number;
-    percentage: number;
-  };
-
-  const marketsArr = marketList.map(({ marketID, location, numOfCards, percentage }: MarketDisplayProps) => (
+  const marketsArr = marketList.map(({ marketID, location, numOfCards, percentage }) => (
     <Grid item sm={12} md={4} lg={3} key={marketID}>
       <MarketCard
         marketID={marketID}

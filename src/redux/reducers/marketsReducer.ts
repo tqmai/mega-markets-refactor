@@ -11,14 +11,6 @@
 
 import * as types from "../constants/actionTypes";
 
-const initialState = {
-  totalMarkets: 0,
-  totalCards: 0,
-  marketList: [],
-  lastMarketId: 10000,
-  newLocation: "",
-};
-
 interface TAction {
   type: string;
   payload: any;
@@ -30,6 +22,22 @@ interface TMarket {
   numOfCards: number;
   percentage: string;
 }
+
+interface TState {
+  totalMarkets: number;
+  totalCards: number;
+  marketList: TMarket[];
+  lastMarketId: number;
+  newLocation: string;
+}
+
+const initialState: TState = {
+  totalMarkets: 0,
+  totalCards: 0,
+  marketList: [],
+  lastMarketId: 10000,
+  newLocation: "",
+};
 
 const marketsReducer = (state = initialState, action: TAction) => {
   let marketList: TMarket[];
