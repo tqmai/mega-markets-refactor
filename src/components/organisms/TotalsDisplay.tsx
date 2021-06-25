@@ -18,7 +18,9 @@ const TotalsContainer = styled.div`
 `;
 
 const TotalsDisplay = () => {
+  // @ts-expect-error
   const totalMarkets = useAppSelector((state) => state.markets.totalMarkets);
+  // @ts-expect-error
   const totalCards = useAppSelector((state) => state.markets.totalCards);
 
   return (
