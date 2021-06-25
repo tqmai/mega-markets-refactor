@@ -8,8 +8,6 @@
  *
  * ************************************
  */
-
-// import actionType constants
 import * as types from "../constants/actionTypes";
 
 export const addCard = (marketId: number) => ({
@@ -17,14 +15,8 @@ export const addCard = (marketId: number) => ({
   payload: marketId,
 });
 
-// add more action creators
 export const addMarket = (location: string) => ({
   type: types.ADD_MARKET,
-  payload: location,
-});
-
-export const setNewLocation = (location: string) => ({
-  type: types.SET_NEW_LOCATION,
   payload: location,
 });
 

@@ -80,10 +80,6 @@ const marketsReducer = (state = initialState, action: TAction) => {
       };
     }
 
-    case types.SET_NEW_LOCATION: {
-      break;
-    }
-
     case types.ADD_CARD: {
       // we use action.payload to get marketID
       targetID = Number(action.payload);
