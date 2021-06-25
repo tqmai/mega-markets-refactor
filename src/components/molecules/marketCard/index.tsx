@@ -5,7 +5,7 @@ import { Colors, MediaQueries, Radii, BorderWidths, Spacing } from "../../../sty
 import { Typography } from "../../atoms/typography";
 import { Button } from "../../atoms/button";
 
-const StudioCardContainer = styled.div`
+const CardContainer = styled.div`
   width: 100%;
   border-radius: ${Radii.soft};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 4px rgba(0, 0, 0, 0.25);
@@ -25,7 +25,7 @@ const StudioCardContainer = styled.div`
   }
 `;
 
-const StudioCardTitle = styled(Typography)`
+const CardTitle = styled(Typography)`
   color: ${Colors.neutral800};
   display: flex;
   align-items: center;
@@ -51,8 +51,8 @@ type MarketDisplayProps = {
 };
 
 const MarketCard = ({ marketID, location, numOfCards, percentage, addCard, deleteCard }: MarketDisplayProps) => (
-  <StudioCardContainer>
-    <StudioCardTitle variant="h2">{location}</StudioCardTitle>
+  <CardContainer>
+    <CardTitle variant="h2">{location}</CardTitle>
     <div>
       <Typography variant="h4">Market ID: </Typography>
       <Typography variant="body">{marketID}</Typography>
@@ -71,7 +71,7 @@ const MarketCard = ({ marketID, location, numOfCards, percentage, addCard, delet
     <StyledButton variant="secondary" size="small" value={marketID} onClick={deleteCard}>
       Delete Card
     </StyledButton>
-  </StudioCardContainer>
+  </CardContainer>
 );
 
 export default MarketCard;
